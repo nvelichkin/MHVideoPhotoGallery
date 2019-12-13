@@ -68,8 +68,12 @@ UIView *MHStatusBar(void){
 
     
     if (@available(ios 13, *)) {
-        CGRect frame = [[UIStatusBarManager init] statusBarFrame];
-        statusBar = [[UIView alloc] initWithFrame:frame];
+        for (UIWindow *window in UIApplication.sharedApplication.windows) {
+            if (window.isKeyWindow) {
+                CGRect frame = window.windowScene.statusBarManager.statusBarFrame;
+                statusBar = [[UIView alloc] initWithFrame:frame];
+            }
+        }
     } else {
         if ([object respondsToSelector:NSSelectorFromString(key)]) {
             statusBar = [object valueForKey:key];

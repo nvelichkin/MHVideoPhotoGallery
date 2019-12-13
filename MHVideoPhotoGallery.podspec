@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     :tag => 'v2.2.0'
   }
 
-  s.dependency 'SDWebImage'
+  s.dependency 'SDWebImage', '4.2.2'
   s.dependency 'TTTAttributedLabel', '1.13.3'
   s.dependency 'Masonry'
 
